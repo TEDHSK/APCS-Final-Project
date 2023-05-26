@@ -1,0 +1,1811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Course Registration webpage</title>
+</head>
+<body class="body">
+  <div class="sheader">
+    <h1>Select Your Schedule</h1>
+  </div>
+
+  <form action="submit.html" method="get">
+  <div class="studentinfo" id="registration-data"></div>
+
+  <div class="courseslists" id="english-form">
+  <form action="submit.html" method="get">
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const studentName = params.get("sname");
+    const studentID = params.get("sid");
+    const grade = params.get("grade"); 
+
+    const registrationDataDiv = document.getElementById("registration-data");
+    registrationDataDiv.innerHTML = `
+      <p">Student Name: ${studentName}</p>
+      <p>Student ID: ${studentID}</p>
+      <p>Grade (Coming Year): ${grade}</p>
+    `;
+
+    const englishForm = document.getElementById("english-form");
+
+    function showHideEnglishForm() {
+      const selectedGrade = grade;
+
+      if (selectedGrade === "9th") {
+        englishForm.innerHTML = `
+          <label for="english"><b> English: </label><br />
+          <select name="english">
+            <option value="r9th">English 9</option>
+            <option value="a9th">English 9 Advanced</option>
+            <option value="elde">ELD Emerging 1-2 (2 periods)</option>
+            <option value="eldexp">ELD Expanding</option>
+            <option value="eldbrid">ELD Bridging</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="math"><b> Math: </label><br />
+          <select name="math">
+            <option value="rm9th">Integrated Math I</option>
+            <option value="am9th">Integrated Math II</option>  
+            <option value="km9th">Integrated Math II/III Accelerated</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="science"><b> Science: </label><br />
+          <select name="science">
+            <option value="rs9th">Living Earth</option>
+            <option value="rs9th">Chemistry in the Earth System</option>
+            <option value="rs9th">Physics of the Universe</option>
+            <option value="rs9th">Earth Space Science</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="socialscience"><b>Social Science: </label><br />
+          <select name="socialscience">
+            <option value="hgeo">Human Geography(1sem)</option>
+            <option value="aphgeo">AP Human Geography</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="peducation"><b>Physical Education/Sports: </label><br />
+          <select name="peducation">
+            <option value="afrotc1ab">AF ROTC 1AB</option>
+            <option value="afrotc2ab">AF ROTC 2AB</option>
+            <option value="band">Band A(1st sem)</option>
+            <option value="bmodern">Beginning Modern Dance</option>
+            <option value="drill">Drill Team</option>
+            <option value="peduc">Physical Education</option>
+            <option value="peyog">PE-Yoga</option>
+            <option value="pep">Pep Squad</option>
+            <option value="interdan">Intermediate Dance</option>
+            <option value="advdance">Advance Dance</option>
+            <option value="base">Baseball</option>
+            <option value="basket">Basketball</option>
+            <option value="footb">Football</option>
+            <option value="gol">Golf</option>
+            <option value="lac">Lacrosse</option>
+            <option value="mountbik">Mountain Biking</option>
+            <option value="soc">Soccer</option>
+            <option value="swim">Swimming</option>
+            <option value="ten">Tennis</option>
+            <option value="trac">Track</option>
+            <option value="volley">Volleyball</option>
+            <option value="water">Waterpolo</option>
+            <option value="afrotc1ab">AF ROTC 1AB</option>
+            <option value="xcountry">Cross Country</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="elective"><b> Elective: </label><br />
+          <select name="elective">
+            <option value="art">Art 1-2</option>
+
+            <option value="dp1">Draw/Paint 1-2</option>
+            <option value="dp3">Draw/Paint 3-4</option>
+            <option value="dp5">Draw/Paint 5-6</option>
+
+            <option value="cer">Ceramics 1-2</option>
+            <option value="cer3">Ceramics 3-4</option>
+            <option value="cer5">Ceramics 5-6</option>
+            <option value="cer7">Ceramics 7-8</option>
+
+            <option value="ph">Photography 1-2(Digital)</option>
+            <option value="ph3">Photography 3-4(Digital)</option>
+            <option value="ph5">Photography 5-6(Digital)</option>
+
+            <option value="stuart">AP Studio Art(2D,3D,Drawing)</option>
+
+            <option value="ah">AP Art History</option>
+
+            <option value="dr">Drama 1-2</option>
+            <option value="dr3">Drama 3-4(Audition)</option>
+            <option value="dr5">Drama 5-6(Audition)</option>
+            <option value="dr7">Drama 7-8(Audition)</option>
+
+            <option value="dp">Drama Production (Audition) (Digital)</option>
+
+            <option value="gl">Glee (Women's Choir)</option>
+            <option value="mx">Mixed Chorus (Men's Choir)</option>
+            <option value="ac">Acapella Choir (Audiiton)</option>
+            <option value="cc">Chamber Choir (Charismatics Audition) (Digital)</option>
+            <option value="bb">Band B (Concert Band 2nd sem)</option>
+            <option value="we">Wind Ensemble</option>
+            <option value="orc">Orchestra</option>
+            <option value="soc">Symphony Orchestra</option>
+            <option value="jb">Jazz Band(Audition)</option>
+
+            <option value="cin">Cinematography 1-2</option>
+            <option value="cin3">Cinematography 3-4</option>
+            <option value="cin5">Cinematography 5-6 Honors</option>
+            <option value="cin7">Arts, Media, Entertainment Intern(Cinema 7-8)</option>
+
+            <option value="et">Entertainment Tech & Live Prodution 1-2</option>
+            <option value="et3">Entertainment Tech & Live Prodution 3-4 Honors</option>
+            <option value="et5">Entertainment Tech & Live Prodution 5-6 Honors</option>
+
+            <option value="gc">Graphic Communications 1-2</option>
+            <option value="gc3">Graphic Communications 3-4</option>
+            <option value="gc5">Graphic Communications 5-6</option>
+            <option value="gc7">Mfg & Product Dev Intern(Graphic 7-8)</option>
+
+            <option value="at">Applied Technology 1-2</option>
+            <option value="at">Applied Technology 3-4(Application)</option>
+
+            <option value="bc">Business Computer Applications</option>
+            <option value="comapp">Computer Applications</option>
+            <option value="envirocar">Environemntal Carerres 1-2(Gardening)</option>
+            <option value="teachin">Intro to Teaching(Application)</option>
+
+            <option value="jour">Journalism 1-2</option>
+            <option value="jour3">Journalism 3-4</option>
+            <option value="jour5">Journalism 5-6</option>
+
+            <option value="spee">Speech/Debate</option>
+            <option value="sgov">Student Government(By Election)</option>
+            <option value="year">Yearbook 1-6(Application))</option>
+        
+            <option value="biot">Biotechnology(7th Per)</option>
+            <option value="gcc">GCC Dual Enrollment Courses</option>
+            <option value="sres">Science Research</option>
+
+            <option value="smed">Sports Medicine</option>
+            <option value="asmed">Advanced Sports Medicine Honors</option>
+            <option value="health">Healthcare Internship Honors</option>
+
+            <option value="acomp">Applied Computer Programming</option>
+            <option value="apcomp">AP Computer Science</option>
+            <option value="honorscomp">Honors Software Development Internship</option>
+
+            <option value="spee">Speech/Debate</option>
+
+            <option value="afro">AF ROTC 1</option>
+            <option value="afro2">AF ROTC 2</option>
+            <option value="afro3">AF ROTC 3</option>
+            <option value="afro4">AF ROTC 4AB</option>
+            <option value="afrohon">Aviation Ground School Honors</option>
+
+            <option value="fren">French 1-2</option>
+            <option value="fren3">French 3-4</option>
+            <option value="germ">German 1-2</option>
+            <option value="germ3">German 3-4</option>
+            <option value="germ5">German 5-6 Honors</option>
+            <option value="kore">Korean 1-2</option>
+            <option value="kore3">Korean 3-4</option>
+            <option value="kore5">Korean 5-6</option>
+
+            <option value="kore7">Korean 7-8 Honors</option>
+            <option value="span">Spanish 1-2</option>
+            <option value="span3">Spanish 3-4</option>
+            <option value="span5">Spanish 5-6</option>
+            <option value="span7">AP Spanish Lanugage(7-8)</option>
+            <option value="span9">AP Spanish Lanugage(9-10)</option>
+           
+            <option value="cap">AP Capstone Seminar(10th or 11th)</option>
+            <option value="caprese">AP Capstone Research(11th or 12th)</option>
+            <option value="peer">Peer Tutor/Academic Mentor(Application)(11th/12th)</option>
+            <option value="spee">Speech/Debate</option>
+            <option value="ta">Teacher's Aide(11th/12th)</option>
+          </select>
+          
+
+          <br />
+          <br />
+
+          <label for="elective"><b> Elective: </label><br />
+          <select name="elective">
+            <option value="art">Art 1-2</option>
+
+            <option value="dp1">Draw/Paint 1-2</option>
+            <option value="dp3">Draw/Paint 3-4</option>
+            <option value="dp5">Draw/Paint 5-6</option>
+
+            <option value="cer">Ceramics 1-2</option>
+            <option value="cer3">Ceramics 3-4</option>
+            <option value="cer5">Ceramics 5-6</option>
+            <option value="cer7">Ceramics 7-8</option>
+
+            <option value="ph">Photography 1-2(Digital)</option>
+            <option value="ph3">Photography 3-4(Digital)</option>
+            <option value="ph5">Photography 5-6(Digital)</option>
+
+            <option value="stuart">AP Studio Art(2D,3D,Drawing)</option>
+
+            <option value="ah">AP Art History</option>
+
+            <option value="dr">Drama 1-2</option>
+            <option value="dr3">Drama 3-4(Audition)</option>
+            <option value="dr5">Drama 5-6(Audition)</option>
+            <option value="dr7">Drama 7-8(Audition)</option>
+
+            <option value="dp">Drama Production (Audition) (Digital)</option>
+
+            <option value="gl">Glee (Women's Choir)</option>
+            <option value="mx">Mixed Chorus (Men's Choir)</option>
+            <option value="ac">Acapella Choir (Audiiton)</option>
+            <option value="cc">Chamber Choir (Charismatics Audition) (Digital)</option>
+            <option value="bb">Band B (Concert Band 2nd sem)</option>
+            <option value="we">Wind Ensemble</option>
+            <option value="orc">Orchestra</option>
+            <option value="soc">Symphony Orchestra</option>
+            <option value="jb">Jazz Band(Audition)</option>
+
+            <option value="cin">Cinematography 1-2</option>
+            <option value="cin3">Cinematography 3-4</option>
+            <option value="cin5">Cinematography 5-6 Honors</option>
+            <option value="cin7">Arts, Media, Entertainment Intern(Cinema 7-8)</option>
+
+            <option value="et">Entertainment Tech & Live Prodution 1-2</option>
+            <option value="et3">Entertainment Tech & Live Prodution 3-4 Honors</option>
+            <option value="et5">Entertainment Tech & Live Prodution 5-6 Honors</option>
+
+            <option value="gc">Graphic Communications 1-2</option>
+            <option value="gc3">Graphic Communications 3-4</option>
+            <option value="gc5">Graphic Communications 5-6</option>
+            <option value="gc7">Mfg & Product Dev Intern(Graphic 7-8)</option>
+
+            <option value="at">Applied Technology 1-2</option>
+            <option value="at">Applied Technology 3-4(Application)</option>
+
+            <option value="bc">Business Computer Applications</option>
+            <option value="comapp">Computer Applications</option>
+            <option value="envirocar">Environemntal Carerres 1-2(Gardening)</option>
+            <option value="teachin">Intro to Teaching(Application)</option>
+
+            <option value="jour">Journalism 1-2</option>
+            <option value="jour3">Journalism 3-4</option>
+            <option value="jour5">Journalism 5-6</option>
+
+            <option value="spee">Speech/Debate</option>
+            <option value="sgov">Student Government(By Election)</option>
+            <option value="year">Yearbook 1-6(Application))</option>
+        
+            <option value="biot">Biotechnology(7th Per)</option>
+            <option value="gcc">GCC Dual Enrollment Courses</option>
+            <option value="sres">Science Research</option>
+
+            <option value="smed">Sports Medicine</option>
+            <option value="asmed">Advanced Sports Medicine Honors</option>
+            <option value="health">Healthcare Internship Honors</option>
+
+            <option value="acomp">Applied Computer Programming</option>
+            <option value="apcomp">AP Computer Science</option>
+            <option value="honorscomp">Honors Software Development Internship</option>
+
+            <option value="spee">Speech/Debate</option>
+
+            <option value="afro">AF ROTC 1</option>
+            <option value="afro2">AF ROTC 2</option>
+            <option value="afro3">AF ROTC 3</option>
+            <option value="afro4">AF ROTC 4AB</option>
+            <option value="afrohon">Aviation Ground School Honors</option>
+
+            <option value="fren">French 1-2</option>
+            <option value="fren3">French 3-4</option>
+            <option value="germ">German 1-2</option>
+            <option value="germ3">German 3-4</option>
+            <option value="germ5">German 5-6 Honors</option>
+            <option value="kore">Korean 1-2</option>
+            <option value="kore3">Korean 3-4</option>
+            <option value="kore5">Korean 5-6</option>
+
+            <option value="kore7">Korean 7-8 Honors</option>
+            <option value="span">Spanish 1-2</option>
+            <option value="span3">Spanish 3-4</option>
+            <option value="span5">Spanish 5-6</option>
+            <option value="span7">AP Spanish Lanugage(7-8)</option>
+            <option value="span9">AP Spanish Lanugage(9-10)</option>
+           
+            <option value="cap">AP Capstone Seminar(10th or 11th)</option>
+            <option value="caprese">AP Capstone Research(11th or 12th)</option>
+            <option value="peer">Peer Tutor/Academic Mentor(Application)(11th/12th)</option>
+            <option value="spee">Speech/Debate</option>
+            <option value="ta">Teacher's Aide(11th/12th)</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="elective"><b> Elective(2nd Choice): </label><br />
+          <select name="elective">
+            <option value="art">Art 1-2</option>
+
+            <option value="dp1">Draw/Paint 1-2</option>
+            <option value="dp3">Draw/Paint 3-4</option>
+            <option value="dp5">Draw/Paint 5-6</option>
+
+            <option value="cer">Ceramics 1-2</option>
+            <option value="cer3">Ceramics 3-4</option>
+            <option value="cer5">Ceramics 5-6</option>
+            <option value="cer7">Ceramics 7-8</option>
+
+            <option value="ph">Photography 1-2(Digital)</option>
+            <option value="ph3">Photography 3-4(Digital)</option>
+            <option value="ph5">Photography 5-6(Digital)</option>
+
+            <option value="stuart">AP Studio Art(2D,3D,Drawing)</option>
+
+            <option value="ah">AP Art History</option>
+
+            <option value="dr">Drama 1-2</option>
+            <option value="dr3">Drama 3-4(Audition)</option>
+            <option value="dr5">Drama 5-6(Audition)</option>
+            <option value="dr7">Drama 7-8(Audition)</option>
+
+            <option value="dp">Drama Production (Audition) (Digital)</option>
+
+            <option value="gl">Glee (Women's Choir)</option>
+            <option value="mx">Mixed Chorus (Men's Choir)</option>
+            <option value="ac">Acapella Choir (Audiiton)</option>
+            <option value="cc">Chamber Choir (Charismatics Audition) (Digital)</option>
+            <option value="bb">Band B (Concert Band 2nd sem)</option>
+            <option value="we">Wind Ensemble</option>
+            <option value="orc">Orchestra</option>
+            <option value="soc">Symphony Orchestra</option>
+            <option value="jb">Jazz Band(Audition)</option>
+
+            <option value="cin">Cinematography 1-2</option>
+            <option value="cin3">Cinematography 3-4</option>
+            <option value="cin5">Cinematography 5-6 Honors</option>
+            <option value="cin7">Arts, Media, Entertainment Intern(Cinema 7-8)</option>
+
+            <option value="et">Entertainment Tech & Live Prodution 1-2</option>
+            <option value="et3">Entertainment Tech & Live Prodution 3-4 Honors</option>
+            <option value="et5">Entertainment Tech & Live Prodution 5-6 Honors</option>
+
+            <option value="gc">Graphic Communications 1-2</option>
+            <option value="gc3">Graphic Communications 3-4</option>
+            <option value="gc5">Graphic Communications 5-6</option>
+            <option value="gc7">Mfg & Product Dev Intern(Graphic 7-8)</option>
+
+            <option value="at">Applied Technology 1-2</option>
+            <option value="at">Applied Technology 3-4(Application)</option>
+
+            <option value="bc">Business Computer Applications</option>
+            <option value="comapp">Computer Applications</option>
+            <option value="envirocar">Environemntal Carerres 1-2(Gardening)</option>
+            <option value="teachin">Intro to Teaching(Application)</option>
+
+            <option value="jour">Journalism 1-2</option>
+            <option value="jour3">Journalism 3-4</option>
+            <option value="jour5">Journalism 5-6</option>
+
+            <option value="spee">Speech/Debate</option>
+            <option value="sgov">Student Government(By Election)</option>
+            <option value="year">Yearbook 1-6(Application))</option>
+        
+            <option value="biot">Biotechnology(7th Per)</option>
+            <option value="gcc">GCC Dual Enrollment Courses</option>
+            <option value="sres">Science Research</option>
+
+            <option value="smed">Sports Medicine</option>
+            <option value="asmed">Advanced Sports Medicine Honors</option>
+            <option value="health">Healthcare Internship Honors</option>
+
+            <option value="acomp">Applied Computer Programming</option>
+            <option value="apcomp">AP Computer Science</option>
+            <option value="honorscomp">Honors Software Development Internship</option>
+
+            <option value="spee">Speech/Debate</option>
+
+            <option value="afro">AF ROTC 1</option>
+            <option value="afro2">AF ROTC 2</option>
+            <option value="afro3">AF ROTC 3</option>
+            <option value="afro4">AF ROTC 4AB</option>
+            <option value="afrohon">Aviation Ground School Honors</option>
+
+            <option value="fren">French 1-2</option>
+            <option value="fren3">French 3-4</option>
+            <option value="germ">German 1-2</option>
+            <option value="germ3">German 3-4</option>
+            <option value="germ5">German 5-6 Honors</option>
+            <option value="kore">Korean 1-2</option>
+            <option value="kore3">Korean 3-4</option>
+            <option value="kore5">Korean 5-6</option>
+
+            <option value="kore7">Korean 7-8 Honors</option>
+            <option value="span">Spanish 1-2</option>
+            <option value="span3">Spanish 3-4</option>
+            <option value="span5">Spanish 5-6</option>
+            <option value="span7">AP Spanish Lanugage(7-8)</option>
+            <option value="span9">AP Spanish Lanugage(9-10)</option>
+           
+            <option value="cap">AP Capstone Seminar(10th or 11th)</option>
+            <option value="caprese">AP Capstone Research(11th or 12th)</option>
+            <option value="peer">Peer Tutor/Academic Mentor(Application)(11th/12th)</option>
+            <option value="spee">Speech/Debate</option>
+            <option value="ta">Teacher's Aide(11th/12th)</option>
+          </select>
+        `;
+      } else if (selectedGrade === "10th") {
+        englishForm.innerHTML = `
+          <label for="english"><b> English: </label><br />
+          <select name="english">
+            <option value="r10th">English 10</option>
+            <option value="a10th">English 10 Honors</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="math"><b> Math: </label><br />
+          <select name="math">
+            <option value="rm10th">Integrated Math II</option>
+            <option value="am10th">Integrated Math III</option>  
+            <option value="km10th">Integrated Math III/Pre Calc Accelerated</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="science"><b> Science: </label><br />
+          <select name="science">
+            <option value="rs9th">Chemistry in the Earth System</option>
+            <option value="rs9th">Physics of the Universe</option>
+            <option value="pshyio">Phsyiology</option>
+            <option value="kinesi">Kinesiology</option>
+            <option value="hpshyio">Phsyiology Honors</option>
+            <option value="apbio">AP Biology</option>
+            <option value="apchem">AP Chemistry</option>
+            <option value="apphy">AP Physics</option>
+            <option value="apenviron">AP Environemntal Science</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="socialscience"><b>Social Science: </label><br />
+          <select name="socialscience">
+            <option value="world">World History</option>
+            <option value="apeuro">AP European History</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="peducation"><b>Physical Education/Sports: </label><br />
+          <select name="peducation">
+            <option value="afrotc1ab">AF ROTC 1AB</option>
+            <option value="afrotc2ab">AF ROTC 2AB</option>
+            <option value="band">Band A(1st sem)</option>
+            <option value="bmodern">Beginning Modern Dance</option>
+            <option value="drill">Drill Team</option>
+            <option value="peduc">Physical Education</option>
+            <option value="peyog">PE-Yoga</option>
+            <option value="pep">Pep Squad</option>
+            <option value="interdan">Intermediate Dance</option>
+            <option value="advdance">Advance Dance</option>
+            <option value="base">Baseball</option>
+            <option value="basket">Basketball</option>
+            <option value="footb">Football</option>
+            <option value="gol">Golf</option>
+            <option value="lac">Lacrosse</option>
+            <option value="mountbik">Mountain Biking</option>
+            <option value="soc">Soccer</option>
+            <option value="swim">Swimming</option>
+            <option value="ten">Tennis</option>
+            <option value="trac">Track</option>
+            <option value="volley">Volleyball</option>
+            <option value="water">Waterpolo</option>
+            <option value="afrotc1ab">AF ROTC 1AB</option>
+            <option value="xcountry">Cross Country</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="elective"><b> Elective: </label><br />
+          <select name="elective">
+            <option value="art">Art 1-2</option>
+
+            <option value="dp1">Draw/Paint 1-2</option>
+            <option value="dp3">Draw/Paint 3-4</option>
+            <option value="dp5">Draw/Paint 5-6</option>
+
+            <option value="cer">Ceramics 1-2</option>
+            <option value="cer3">Ceramics 3-4</option>
+            <option value="cer5">Ceramics 5-6</option>
+            <option value="cer7">Ceramics 7-8</option>
+
+            <option value="ph">Photography 1-2(Digital)</option>
+            <option value="ph3">Photography 3-4(Digital)</option>
+            <option value="ph5">Photography 5-6(Digital)</option>
+
+            <option value="stuart">AP Studio Art(2D,3D,Drawing)</option>
+
+            <option value="ah">AP Art History</option>
+
+            <option value="dr">Drama 1-2</option>
+            <option value="dr3">Drama 3-4(Audition)</option>
+            <option value="dr5">Drama 5-6(Audition)</option>
+            <option value="dr7">Drama 7-8(Audition)</option>
+
+            <option value="dp">Drama Production (Audition) (Digital)</option>
+
+            <option value="gl">Glee (Women's Choir)</option>
+            <option value="mx">Mixed Chorus (Men's Choir)</option>
+            <option value="ac">Acapella Choir (Audiiton)</option>
+            <option value="cc">Chamber Choir (Charismatics Audition) (Digital)</option>
+            <option value="bb">Band B (Concert Band 2nd sem)</option>
+            <option value="we">Wind Ensemble</option>
+            <option value="orc">Orchestra</option>
+            <option value="soc">Symphony Orchestra</option>
+            <option value="jb">Jazz Band(Audition)</option>
+
+            <option value="cin">Cinematography 1-2</option>
+            <option value="cin3">Cinematography 3-4</option>
+            <option value="cin5">Cinematography 5-6 Honors</option>
+            <option value="cin7">Arts, Media, Entertainment Intern(Cinema 7-8)</option>
+
+            <option value="et">Entertainment Tech & Live Prodution 1-2</option>
+            <option value="et3">Entertainment Tech & Live Prodution 3-4 Honors</option>
+            <option value="et5">Entertainment Tech & Live Prodution 5-6 Honors</option>
+
+            <option value="gc">Graphic Communications 1-2</option>
+            <option value="gc3">Graphic Communications 3-4</option>
+            <option value="gc5">Graphic Communications 5-6</option>
+            <option value="gc7">Mfg & Product Dev Intern(Graphic 7-8)</option>
+
+            <option value="at">Applied Technology 1-2</option>
+            <option value="at">Applied Technology 3-4(Application)</option>
+
+            <option value="bc">Business Computer Applications</option>
+            <option value="comapp">Computer Applications</option>
+            <option value="envirocar">Environemntal Carerres 1-2(Gardening)</option>
+            <option value="teachin">Intro to Teaching(Application)</option>
+
+            <option value="jour">Journalism 1-2</option>
+            <option value="jour3">Journalism 3-4</option>
+            <option value="jour5">Journalism 5-6</option>
+
+            <option value="spee">Speech/Debate</option>
+            <option value="sgov">Student Government(By Election)</option>
+            <option value="year">Yearbook 1-6(Application))</option>
+        
+            <option value="biot">Biotechnology(7th Per)</option>
+            <option value="gcc">GCC Dual Enrollment Courses</option>
+            <option value="sres">Science Research</option>
+
+            <option value="smed">Sports Medicine</option>
+            <option value="asmed">Advanced Sports Medicine Honors</option>
+            <option value="health">Healthcare Internship Honors</option>
+
+            <option value="acomp">Applied Computer Programming</option>
+            <option value="apcomp">AP Computer Science</option>
+            <option value="honorscomp">Honors Software Development Internship</option>
+
+            <option value="spee">Speech/Debate</option>
+
+            <option value="afro">AF ROTC 1</option>
+            <option value="afro2">AF ROTC 2</option>
+            <option value="afro3">AF ROTC 3</option>
+            <option value="afro4">AF ROTC 4AB</option>
+            <option value="afrohon">Aviation Ground School Honors</option>
+
+            <option value="fren">French 1-2</option>
+            <option value="fren3">French 3-4</option>
+            <option value="germ">German 1-2</option>
+            <option value="germ3">German 3-4</option>
+            <option value="germ5">German 5-6 Honors</option>
+            <option value="kore">Korean 1-2</option>
+            <option value="kore3">Korean 3-4</option>
+            <option value="kore5">Korean 5-6</option>
+
+            <option value="kore7">Korean 7-8 Honors</option>
+            <option value="span">Spanish 1-2</option>
+            <option value="span3">Spanish 3-4</option>
+            <option value="span5">Spanish 5-6</option>
+            <option value="span7">AP Spanish Lanugage(7-8)</option>
+            <option value="span9">AP Spanish Lanugage(9-10)</option>
+           
+            <option value="cap">AP Capstone Seminar(10th or 11th)</option>
+            <option value="caprese">AP Capstone Research(11th or 12th)</option>
+            <option value="peer">Peer Tutor/Academic Mentor(Application)(11th/12th)</option>
+            <option value="spee">Speech/Debate</option>
+            <option value="ta">Teacher's Aide(11th/12th)</option>
+          </select>
+          
+
+          <br />
+          <br />
+
+          <label for="elective"><b> Elective: </label><br />
+          <select name="elective">
+            <option value="art">Art 1-2</option>
+
+            <option value="dp1">Draw/Paint 1-2</option>
+            <option value="dp3">Draw/Paint 3-4</option>
+            <option value="dp5">Draw/Paint 5-6</option>
+
+            <option value="cer">Ceramics 1-2</option>
+            <option value="cer3">Ceramics 3-4</option>
+            <option value="cer5">Ceramics 5-6</option>
+            <option value="cer7">Ceramics 7-8</option>
+
+            <option value="ph">Photography 1-2(Digital)</option>
+            <option value="ph3">Photography 3-4(Digital)</option>
+            <option value="ph5">Photography 5-6(Digital)</option>
+
+            <option value="stuart">AP Studio Art(2D,3D,Drawing)</option>
+
+            <option value="ah">AP Art History</option>
+
+            <option value="dr">Drama 1-2</option>
+            <option value="dr3">Drama 3-4(Audition)</option>
+            <option value="dr5">Drama 5-6(Audition)</option>
+            <option value="dr7">Drama 7-8(Audition)</option>
+
+            <option value="dp">Drama Production (Audition) (Digital)</option>
+
+            <option value="gl">Glee (Women's Choir)</option>
+            <option value="mx">Mixed Chorus (Men's Choir)</option>
+            <option value="ac">Acapella Choir (Audiiton)</option>
+            <option value="cc">Chamber Choir (Charismatics Audition) (Digital)</option>
+            <option value="bb">Band B (Concert Band 2nd sem)</option>
+            <option value="we">Wind Ensemble</option>
+            <option value="orc">Orchestra</option>
+            <option value="soc">Symphony Orchestra</option>
+            <option value="jb">Jazz Band(Audition)</option>
+
+            <option value="cin">Cinematography 1-2</option>
+            <option value="cin3">Cinematography 3-4</option>
+            <option value="cin5">Cinematography 5-6 Honors</option>
+            <option value="cin7">Arts, Media, Entertainment Intern(Cinema 7-8)</option>
+
+            <option value="et">Entertainment Tech & Live Prodution 1-2</option>
+            <option value="et3">Entertainment Tech & Live Prodution 3-4 Honors</option>
+            <option value="et5">Entertainment Tech & Live Prodution 5-6 Honors</option>
+
+            <option value="gc">Graphic Communications 1-2</option>
+            <option value="gc3">Graphic Communications 3-4</option>
+            <option value="gc5">Graphic Communications 5-6</option>
+            <option value="gc7">Mfg & Product Dev Intern(Graphic 7-8)</option>
+
+            <option value="at">Applied Technology 1-2</option>
+            <option value="at">Applied Technology 3-4(Application)</option>
+
+            <option value="bc">Business Computer Applications</option>
+            <option value="comapp">Computer Applications</option>
+            <option value="envirocar">Environemntal Carerres 1-2(Gardening)</option>
+            <option value="teachin">Intro to Teaching(Application)</option>
+
+            <option value="jour">Journalism 1-2</option>
+            <option value="jour3">Journalism 3-4</option>
+            <option value="jour5">Journalism 5-6</option>
+
+            <option value="spee">Speech/Debate</option>
+            <option value="sgov">Student Government(By Election)</option>
+            <option value="year">Yearbook 1-6(Application))</option>
+        
+            <option value="biot">Biotechnology(7th Per)</option>
+            <option value="gcc">GCC Dual Enrollment Courses</option>
+            <option value="sres">Science Research</option>
+
+            <option value="smed">Sports Medicine</option>
+            <option value="asmed">Advanced Sports Medicine Honors</option>
+            <option value="health">Healthcare Internship Honors</option>
+
+            <option value="acomp">Applied Computer Programming</option>
+            <option value="apcomp">AP Computer Science</option>
+            <option value="honorscomp">Honors Software Development Internship</option>
+
+            <option value="spee">Speech/Debate</option>
+
+            <option value="afro">AF ROTC 1</option>
+            <option value="afro2">AF ROTC 2</option>
+            <option value="afro3">AF ROTC 3</option>
+            <option value="afro4">AF ROTC 4AB</option>
+            <option value="afrohon">Aviation Ground School Honors</option>
+
+            <option value="fren">French 1-2</option>
+            <option value="fren3">French 3-4</option>
+            <option value="germ">German 1-2</option>
+            <option value="germ3">German 3-4</option>
+            <option value="germ5">German 5-6 Honors</option>
+            <option value="kore">Korean 1-2</option>
+            <option value="kore3">Korean 3-4</option>
+            <option value="kore5">Korean 5-6</option>
+
+            <option value="kore7">Korean 7-8 Honors</option>
+            <option value="span">Spanish 1-2</option>
+            <option value="span3">Spanish 3-4</option>
+            <option value="span5">Spanish 5-6</option>
+            <option value="span7">AP Spanish Lanugage(7-8)</option>
+            <option value="span9">AP Spanish Lanugage(9-10)</option>
+           
+            <option value="cap">AP Capstone Seminar(10th or 11th)</option>
+            <option value="caprese">AP Capstone Research(11th or 12th)</option>
+            <option value="peer">Peer Tutor/Academic Mentor(Application)(11th/12th)</option>
+            <option value="spee">Speech/Debate</option>
+            <option value="ta">Teacher's Aide(11th/12th)</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="elective"><b> Elective(2nd Choice): </label><br />
+          <select name="elective">
+            <option value="art">Art 1-2</option>
+
+            <option value="dp1">Draw/Paint 1-2</option>
+            <option value="dp3">Draw/Paint 3-4</option>
+            <option value="dp5">Draw/Paint 5-6</option>
+
+            <option value="cer">Ceramics 1-2</option>
+            <option value="cer3">Ceramics 3-4</option>
+            <option value="cer5">Ceramics 5-6</option>
+            <option value="cer7">Ceramics 7-8</option>
+
+            <option value="ph">Photography 1-2(Digital)</option>
+            <option value="ph3">Photography 3-4(Digital)</option>
+            <option value="ph5">Photography 5-6(Digital)</option>
+
+            <option value="stuart">AP Studio Art(2D,3D,Drawing)</option>
+
+            <option value="ah">AP Art History</option>
+
+            <option value="dr">Drama 1-2</option>
+            <option value="dr3">Drama 3-4(Audition)</option>
+            <option value="dr5">Drama 5-6(Audition)</option>
+            <option value="dr7">Drama 7-8(Audition)</option>
+
+            <option value="dp">Drama Production (Audition) (Digital)</option>
+
+            <option value="gl">Glee (Women's Choir)</option>
+            <option value="mx">Mixed Chorus (Men's Choir)</option>
+            <option value="ac">Acapella Choir (Audiiton)</option>
+            <option value="cc">Chamber Choir (Charismatics Audition) (Digital)</option>
+            <option value="bb">Band B (Concert Band 2nd sem)</option>
+            <option value="we">Wind Ensemble</option>
+            <option value="orc">Orchestra</option>
+            <option value="soc">Symphony Orchestra</option>
+            <option value="jb">Jazz Band(Audition)</option>
+
+            <option value="cin">Cinematography 1-2</option>
+            <option value="cin3">Cinematography 3-4</option>
+            <option value="cin5">Cinematography 5-6 Honors</option>
+            <option value="cin7">Arts, Media, Entertainment Intern(Cinema 7-8)</option>
+
+            <option value="et">Entertainment Tech & Live Prodution 1-2</option>
+            <option value="et3">Entertainment Tech & Live Prodution 3-4 Honors</option>
+            <option value="et5">Entertainment Tech & Live Prodution 5-6 Honors</option>
+
+            <option value="gc">Graphic Communications 1-2</option>
+            <option value="gc3">Graphic Communications 3-4</option>
+            <option value="gc5">Graphic Communications 5-6</option>
+            <option value="gc7">Mfg & Product Dev Intern(Graphic 7-8)</option>
+
+            <option value="at">Applied Technology 1-2</option>
+            <option value="at">Applied Technology 3-4(Application)</option>
+
+            <option value="bc">Business Computer Applications</option>
+            <option value="comapp">Computer Applications</option>
+            <option value="envirocar">Environemntal Carerres 1-2(Gardening)</option>
+            <option value="teachin">Intro to Teaching(Application)</option>
+
+            <option value="jour">Journalism 1-2</option>
+            <option value="jour3">Journalism 3-4</option>
+            <option value="jour5">Journalism 5-6</option>
+
+            <option value="spee">Speech/Debate</option>
+            <option value="sgov">Student Government(By Election)</option>
+            <option value="year">Yearbook 1-6(Application))</option>
+        
+            <option value="biot">Biotechnology(7th Per)</option>
+            <option value="gcc">GCC Dual Enrollment Courses</option>
+            <option value="sres">Science Research</option>
+
+            <option value="smed">Sports Medicine</option>
+            <option value="asmed">Advanced Sports Medicine Honors</option>
+            <option value="health">Healthcare Internship Honors</option>
+
+            <option value="acomp">Applied Computer Programming</option>
+            <option value="apcomp">AP Computer Science</option>
+            <option value="honorscomp">Honors Software Development Internship</option>
+
+            <option value="spee">Speech/Debate</option>
+
+            <option value="afro">AF ROTC 1</option>
+            <option value="afro2">AF ROTC 2</option>
+            <option value="afro3">AF ROTC 3</option>
+            <option value="afro4">AF ROTC 4AB</option>
+            <option value="afrohon">Aviation Ground School Honors</option>
+
+            <option value="fren">French 1-2</option>
+            <option value="fren3">French 3-4</option>
+            <option value="germ">German 1-2</option>
+            <option value="germ3">German 3-4</option>
+            <option value="germ5">German 5-6 Honors</option>
+            <option value="kore">Korean 1-2</option>
+            <option value="kore3">Korean 3-4</option>
+            <option value="kore5">Korean 5-6</option>
+
+            <option value="kore7">Korean 7-8 Honors</option>
+            <option value="span">Spanish 1-2</option>
+            <option value="span3">Spanish 3-4</option>
+            <option value="span5">Spanish 5-6</option>
+            <option value="span7">AP Spanish Lanugage(7-8)</option>
+            <option value="span9">AP Spanish Lanugage(9-10)</option>
+           
+            <option value="cap">AP Capstone Seminar(10th or 11th)</option>
+            <option value="caprese">AP Capstone Research(11th or 12th)</option>
+            <option value="peer">Peer Tutor/Academic Mentor(Application)(11th/12th)</option>
+            <option value="spee">Speech/Debate</option>
+            <option value="ta">Teacher's Aide(11th/12th)</option>
+          </select>
+        `;
+      } else if (selectedGrade === "11th") {
+        englishForm.innerHTML = `
+          <label for="english"><b> English: </label><br />
+          <select name="english">
+            <option value="r11th">English 11</option>
+            <option value="a11th">AP English Language</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="math"><b> Math: </label><br />
+          <select name="math">
+            <option value="rm11th">Integrated Math III</option>
+            <option value="am11th">Precalculus Honors</option>  
+            <option value="km11th">AP Calculus AB</option>
+            <option value="apstat">AP Statistics</option>
+            <option value="stat">Statistics</option>
+            <option value="data">Introduction to Data Science</option>
+
+          </select>
+
+          <br />
+          <br />
+
+          <label for="science"><b> Science: </label><br />
+          <select name="science">
+            <option value="rs9th">Chemistry in the Earth System</option>
+            <option value="rs9th">Physics of the Universe</option>
+            <option value="pshyio">Phsyiology</option>
+            <option value="kinesi">Kinesiology</option>
+            <option value="hpshyio">Phsyiology Honors</option>
+            <option value="apbio">AP Biology</option>
+            <option value="apchem">AP Chemistry</option>
+            <option value="apphy">AP Physics</option>
+            <option value="apenviron">AP Environemntal Science</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="socialscience"><b>Social Science: </label><br />
+          <select name="socialscience">
+            <option value="ush">United States History</option>
+            <option value="apush">AP United States History</option>
+            <option value="soci">Sociology(1sem)(11th/12th)</option>
+            <option value="psy">AP Psychology(11th/12th)</option>
+            <option value="psych">Psychology(1sem)(11th/12th)</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="peducation"><b>Physical Education/Sports: </label><br />
+          <select name="peducation">
+            <option value="afrotc1ab">AF ROTC 1AB</option>
+            <option value="afrotc2ab">AF ROTC 2AB</option>
+            <option value="band">Band A(1st sem)</option>
+            <option value="bmodern">Beginning Modern Dance</option>
+            <option value="drill">Drill Team</option>
+            <option value="peduc">Physical Education</option>
+            <option value="peyog">PE-Yoga</option>
+            <option value="pep">Pep Squad</option>
+            <option value="interdan">Intermediate Dance</option>
+            <option value="advdance">Advance Dance</option>
+            <option value="base">Baseball</option>
+            <option value="basket">Basketball</option>
+            <option value="footb">Football</option>
+            <option value="gol">Golf</option>
+            <option value="lac">Lacrosse</option>
+            <option value="mountbik">Mountain Biking</option>
+            <option value="soc">Soccer</option>
+            <option value="swim">Swimming</option>
+            <option value="ten">Tennis</option>
+            <option value="trac">Track</option>
+            <option value="volley">Volleyball</option>
+            <option value="water">Waterpolo</option>
+            <option value="afrotc1ab">AF ROTC 1AB</option>
+            <option value="xcountry">Cross Country</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="elective"><b> Elective: </label><br />
+          <select name="elective">
+            <option value="art">Art 1-2</option>
+
+            <option value="dp1">Draw/Paint 1-2</option>
+            <option value="dp3">Draw/Paint 3-4</option>
+            <option value="dp5">Draw/Paint 5-6</option>
+
+            <option value="cer">Ceramics 1-2</option>
+            <option value="cer3">Ceramics 3-4</option>
+            <option value="cer5">Ceramics 5-6</option>
+            <option value="cer7">Ceramics 7-8</option>
+
+            <option value="ph">Photography 1-2(Digital)</option>
+            <option value="ph3">Photography 3-4(Digital)</option>
+            <option value="ph5">Photography 5-6(Digital)</option>
+
+            <option value="stuart">AP Studio Art(2D,3D,Drawing)</option>
+
+            <option value="ah">AP Art History</option>
+
+            <option value="dr">Drama 1-2</option>
+            <option value="dr3">Drama 3-4(Audition)</option>
+            <option value="dr5">Drama 5-6(Audition)</option>
+            <option value="dr7">Drama 7-8(Audition)</option>
+
+            <option value="dp">Drama Production (Audition) (Digital)</option>
+
+            <option value="gl">Glee (Women's Choir)</option>
+            <option value="mx">Mixed Chorus (Men's Choir)</option>
+            <option value="ac">Acapella Choir (Audiiton)</option>
+            <option value="cc">Chamber Choir (Charismatics Audition) (Digital)</option>
+            <option value="bb">Band B (Concert Band 2nd sem)</option>
+            <option value="we">Wind Ensemble</option>
+            <option value="orc">Orchestra</option>
+            <option value="soc">Symphony Orchestra</option>
+            <option value="jb">Jazz Band(Audition)</option>
+
+            <option value="cin">Cinematography 1-2</option>
+            <option value="cin3">Cinematography 3-4</option>
+            <option value="cin5">Cinematography 5-6 Honors</option>
+            <option value="cin7">Arts, Media, Entertainment Intern(Cinema 7-8)</option>
+
+            <option value="et">Entertainment Tech & Live Prodution 1-2</option>
+            <option value="et3">Entertainment Tech & Live Prodution 3-4 Honors</option>
+            <option value="et5">Entertainment Tech & Live Prodution 5-6 Honors</option>
+
+            <option value="gc">Graphic Communications 1-2</option>
+            <option value="gc3">Graphic Communications 3-4</option>
+            <option value="gc5">Graphic Communications 5-6</option>
+            <option value="gc7">Mfg & Product Dev Intern(Graphic 7-8)</option>
+
+            <option value="at">Applied Technology 1-2</option>
+            <option value="at">Applied Technology 3-4(Application)</option>
+
+            <option value="bc">Business Computer Applications</option>
+            <option value="comapp">Computer Applications</option>
+            <option value="envirocar">Environemntal Carerres 1-2(Gardening)</option>
+            <option value="teachin">Intro to Teaching(Application)</option>
+
+            <option value="jour">Journalism 1-2</option>
+            <option value="jour3">Journalism 3-4</option>
+            <option value="jour5">Journalism 5-6</option>
+
+            <option value="spee">Speech/Debate</option>
+            <option value="sgov">Student Government(By Election)</option>
+            <option value="year">Yearbook 1-6(Application))</option>
+        
+            <option value="biot">Biotechnology(7th Per)</option>
+            <option value="gcc">GCC Dual Enrollment Courses</option>
+            <option value="sres">Science Research</option>
+
+            <option value="smed">Sports Medicine</option>
+            <option value="asmed">Advanced Sports Medicine Honors</option>
+            <option value="health">Healthcare Internship Honors</option>
+
+            <option value="acomp">Applied Computer Programming</option>
+            <option value="apcomp">AP Computer Science</option>
+            <option value="honorscomp">Honors Software Development Internship</option>
+
+            <option value="spee">Speech/Debate</option>
+
+            <option value="afro">AF ROTC 1</option>
+            <option value="afro2">AF ROTC 2</option>
+            <option value="afro3">AF ROTC 3</option>
+            <option value="afro4">AF ROTC 4AB</option>
+            <option value="afrohon">Aviation Ground School Honors</option>
+
+            <option value="fren">French 1-2</option>
+            <option value="fren3">French 3-4</option>
+            <option value="germ">German 1-2</option>
+            <option value="germ3">German 3-4</option>
+            <option value="germ5">German 5-6 Honors</option>
+            <option value="kore">Korean 1-2</option>
+            <option value="kore3">Korean 3-4</option>
+            <option value="kore5">Korean 5-6</option>
+
+            <option value="kore7">Korean 7-8 Honors</option>
+            <option value="span">Spanish 1-2</option>
+            <option value="span3">Spanish 3-4</option>
+            <option value="span5">Spanish 5-6</option>
+            <option value="span7">AP Spanish Lanugage(7-8)</option>
+            <option value="span9">AP Spanish Lanugage(9-10)</option>
+           
+            <option value="cap">AP Capstone Seminar(10th or 11th)</option>
+            <option value="caprese">AP Capstone Research(11th or 12th)</option>
+            <option value="peer">Peer Tutor/Academic Mentor(Application)(11th/12th)</option>
+            <option value="spee">Speech/Debate</option>
+            <option value="ta">Teacher's Aide(11th/12th)</option>
+          </select>
+          
+
+          <br />
+          <br />
+
+          <label for="elective"><b> Elective: </label><br />
+          <select name="elective">
+            <option value="art">Art 1-2</option>
+
+            <option value="dp1">Draw/Paint 1-2</option>
+            <option value="dp3">Draw/Paint 3-4</option>
+            <option value="dp5">Draw/Paint 5-6</option>
+
+            <option value="cer">Ceramics 1-2</option>
+            <option value="cer3">Ceramics 3-4</option>
+            <option value="cer5">Ceramics 5-6</option>
+            <option value="cer7">Ceramics 7-8</option>
+
+            <option value="ph">Photography 1-2(Digital)</option>
+            <option value="ph3">Photography 3-4(Digital)</option>
+            <option value="ph5">Photography 5-6(Digital)</option>
+
+            <option value="stuart">AP Studio Art(2D,3D,Drawing)</option>
+
+            <option value="ah">AP Art History</option>
+
+            <option value="dr">Drama 1-2</option>
+            <option value="dr3">Drama 3-4(Audition)</option>
+            <option value="dr5">Drama 5-6(Audition)</option>
+            <option value="dr7">Drama 7-8(Audition)</option>
+
+            <option value="dp">Drama Production (Audition) (Digital)</option>
+
+            <option value="gl">Glee (Women's Choir)</option>
+            <option value="mx">Mixed Chorus (Men's Choir)</option>
+            <option value="ac">Acapella Choir (Audiiton)</option>
+            <option value="cc">Chamber Choir (Charismatics Audition) (Digital)</option>
+            <option value="bb">Band B (Concert Band 2nd sem)</option>
+            <option value="we">Wind Ensemble</option>
+            <option value="orc">Orchestra</option>
+            <option value="soc">Symphony Orchestra</option>
+            <option value="jb">Jazz Band(Audition)</option>
+
+            <option value="cin">Cinematography 1-2</option>
+            <option value="cin3">Cinematography 3-4</option>
+            <option value="cin5">Cinematography 5-6 Honors</option>
+            <option value="cin7">Arts, Media, Entertainment Intern(Cinema 7-8)</option>
+
+            <option value="et">Entertainment Tech & Live Prodution 1-2</option>
+            <option value="et3">Entertainment Tech & Live Prodution 3-4 Honors</option>
+            <option value="et5">Entertainment Tech & Live Prodution 5-6 Honors</option>
+
+            <option value="gc">Graphic Communications 1-2</option>
+            <option value="gc3">Graphic Communications 3-4</option>
+            <option value="gc5">Graphic Communications 5-6</option>
+            <option value="gc7">Mfg & Product Dev Intern(Graphic 7-8)</option>
+
+            <option value="at">Applied Technology 1-2</option>
+            <option value="at">Applied Technology 3-4(Application)</option>
+
+            <option value="bc">Business Computer Applications</option>
+            <option value="comapp">Computer Applications</option>
+            <option value="envirocar">Environemntal Carerres 1-2(Gardening)</option>
+            <option value="teachin">Intro to Teaching(Application)</option>
+
+            <option value="jour">Journalism 1-2</option>
+            <option value="jour3">Journalism 3-4</option>
+            <option value="jour5">Journalism 5-6</option>
+
+            <option value="spee">Speech/Debate</option>
+            <option value="sgov">Student Government(By Election)</option>
+            <option value="year">Yearbook 1-6(Application))</option>
+        
+            <option value="biot">Biotechnology(7th Per)</option>
+            <option value="gcc">GCC Dual Enrollment Courses</option>
+            <option value="sres">Science Research</option>
+
+            <option value="smed">Sports Medicine</option>
+            <option value="asmed">Advanced Sports Medicine Honors</option>
+            <option value="health">Healthcare Internship Honors</option>
+
+            <option value="acomp">Applied Computer Programming</option>
+            <option value="apcomp">AP Computer Science</option>
+            <option value="honorscomp">Honors Software Development Internship</option>
+
+            <option value="spee">Speech/Debate</option>
+
+            <option value="afro">AF ROTC 1</option>
+            <option value="afro2">AF ROTC 2</option>
+            <option value="afro3">AF ROTC 3</option>
+            <option value="afro4">AF ROTC 4AB</option>
+            <option value="afrohon">Aviation Ground School Honors</option>
+
+            <option value="fren">French 1-2</option>
+            <option value="fren3">French 3-4</option>
+            <option value="germ">German 1-2</option>
+            <option value="germ3">German 3-4</option>
+            <option value="germ5">German 5-6 Honors</option>
+            <option value="kore">Korean 1-2</option>
+            <option value="kore3">Korean 3-4</option>
+            <option value="kore5">Korean 5-6</option>
+
+            <option value="kore7">Korean 7-8 Honors</option>
+            <option value="span">Spanish 1-2</option>
+            <option value="span3">Spanish 3-4</option>
+            <option value="span5">Spanish 5-6</option>
+            <option value="span7">AP Spanish Lanugage(7-8)</option>
+            <option value="span9">AP Spanish Lanugage(9-10)</option>
+           
+            <option value="cap">AP Capstone Seminar(10th or 11th)</option>
+            <option value="caprese">AP Capstone Research(11th or 12th)</option>
+            <option value="peer">Peer Tutor/Academic Mentor(Application)(11th/12th)</option>
+            <option value="spee">Speech/Debate</option>
+            <option value="ta">Teacher's Aide(11th/12th)</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="elective"><b> Elective(2nd Choice): </label><br />
+          <select name="elective">
+            <option value="art">Art 1-2</option>
+
+            <option value="dp1">Draw/Paint 1-2</option>
+            <option value="dp3">Draw/Paint 3-4</option>
+            <option value="dp5">Draw/Paint 5-6</option>
+
+            <option value="cer">Ceramics 1-2</option>
+            <option value="cer3">Ceramics 3-4</option>
+            <option value="cer5">Ceramics 5-6</option>
+            <option value="cer7">Ceramics 7-8</option>
+
+            <option value="ph">Photography 1-2(Digital)</option>
+            <option value="ph3">Photography 3-4(Digital)</option>
+            <option value="ph5">Photography 5-6(Digital)</option>
+
+            <option value="stuart">AP Studio Art(2D,3D,Drawing)</option>
+
+            <option value="ah">AP Art History</option>
+
+            <option value="dr">Drama 1-2</option>
+            <option value="dr3">Drama 3-4(Audition)</option>
+            <option value="dr5">Drama 5-6(Audition)</option>
+            <option value="dr7">Drama 7-8(Audition)</option>
+
+            <option value="dp">Drama Production (Audition) (Digital)</option>
+
+            <option value="gl">Glee (Women's Choir)</option>
+            <option value="mx">Mixed Chorus (Men's Choir)</option>
+            <option value="ac">Acapella Choir (Audiiton)</option>
+            <option value="cc">Chamber Choir (Charismatics Audition) (Digital)</option>
+            <option value="bb">Band B (Concert Band 2nd sem)</option>
+            <option value="we">Wind Ensemble</option>
+            <option value="orc">Orchestra</option>
+            <option value="soc">Symphony Orchestra</option>
+            <option value="jb">Jazz Band(Audition)</option>
+
+            <option value="cin">Cinematography 1-2</option>
+            <option value="cin3">Cinematography 3-4</option>
+            <option value="cin5">Cinematography 5-6 Honors</option>
+            <option value="cin7">Arts, Media, Entertainment Intern(Cinema 7-8)</option>
+
+            <option value="et">Entertainment Tech & Live Prodution 1-2</option>
+            <option value="et3">Entertainment Tech & Live Prodution 3-4 Honors</option>
+            <option value="et5">Entertainment Tech & Live Prodution 5-6 Honors</option>
+
+            <option value="gc">Graphic Communications 1-2</option>
+            <option value="gc3">Graphic Communications 3-4</option>
+            <option value="gc5">Graphic Communications 5-6</option>
+            <option value="gc7">Mfg & Product Dev Intern(Graphic 7-8)</option>
+
+            <option value="at">Applied Technology 1-2</option>
+            <option value="at">Applied Technology 3-4(Application)</option>
+
+            <option value="bc">Business Computer Applications</option>
+            <option value="comapp">Computer Applications</option>
+            <option value="envirocar">Environemntal Carerres 1-2(Gardening)</option>
+            <option value="teachin">Intro to Teaching(Application)</option>
+
+            <option value="jour">Journalism 1-2</option>
+            <option value="jour3">Journalism 3-4</option>
+            <option value="jour5">Journalism 5-6</option>
+
+            <option value="spee">Speech/Debate</option>
+            <option value="sgov">Student Government(By Election)</option>
+            <option value="year">Yearbook 1-6(Application))</option>
+        
+            <option value="biot">Biotechnology(7th Per)</option>
+            <option value="gcc">GCC Dual Enrollment Courses</option>
+            <option value="sres">Science Research</option>
+
+            <option value="smed">Sports Medicine</option>
+            <option value="asmed">Advanced Sports Medicine Honors</option>
+            <option value="health">Healthcare Internship Honors</option>
+
+            <option value="acomp">Applied Computer Programming</option>
+            <option value="apcomp">AP Computer Science</option>
+            <option value="honorscomp">Honors Software Development Internship</option>
+
+            <option value="spee">Speech/Debate</option>
+
+            <option value="afro">AF ROTC 1</option>
+            <option value="afro2">AF ROTC 2</option>
+            <option value="afro3">AF ROTC 3</option>
+            <option value="afro4">AF ROTC 4AB</option>
+            <option value="afrohon">Aviation Ground School Honors</option>
+
+            <option value="fren">French 1-2</option>
+            <option value="fren3">French 3-4</option>
+            <option value="germ">German 1-2</option>
+            <option value="germ3">German 3-4</option>
+            <option value="germ5">German 5-6 Honors</option>
+            <option value="kore">Korean 1-2</option>
+            <option value="kore3">Korean 3-4</option>
+            <option value="kore5">Korean 5-6</option>
+
+            <option value="kore7">Korean 7-8 Honors</option>
+            <option value="span">Spanish 1-2</option>
+            <option value="span3">Spanish 3-4</option>
+            <option value="span5">Spanish 5-6</option>
+            <option value="span7">AP Spanish Lanugage(7-8)</option>
+            <option value="span9">AP Spanish Lanugage(9-10)</option>
+           
+            <option value="cap">AP Capstone Seminar(10th or 11th)</option>
+            <option value="caprese">AP Capstone Research(11th or 12th)</option>
+            <option value="peer">Peer Tutor/Academic Mentor(Application)(11th/12th)</option>
+            <option value="spee">Speech/Debate</option>
+            <option value="ta">Teacher's Aide(11th/12th)</option>
+          </select>
+        `;
+      } else if (selectedGrade === "12th") {
+        englishForm.innerHTML = `
+          <label for="english"><b> English: </label><br />
+          <select name="english">
+            <option value="r12th">English 12</option>
+            <option value="a12th">AP English Literature</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="math"><b> Math: </label><br />
+          <select name="math">
+            <option value="rm12th">Precalculus</option>
+            <option value="km11th">AP Calculus AB</option>  
+            <option value="calcbc">AP Calculus BC</option>
+            <option value="apstat">AP Statistics</option>
+            <option value="linear">Linear Algebra Honors</option>
+            <option value="rstat">Statistics</option>
+            <option value="data">Introduction to Data Science</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="science"><b> Science: </label><br />
+          <select name="science">
+          
+            <option value="none">None</opiton>
+
+            <option value="pshyio">Phsyiology</option>
+            <option value="kinesi">Kinesiology</option>
+            <option value="hpshyio">Phsyiology Honors</option>
+            <option value="apbio">AP Biology</option>
+            <option value="apchem">AP Chemistry</option>
+            <option value="apphy">AP Physics</option>
+            <option value="apphy2">AP Physics 2</option>
+            <option value="apphyc">AP Physics C</option>
+
+            <option value="apenviron">AP Environemntal Science</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="socialscience"><b>Social Science: </label><br />
+          <select name="socialscience">
+            <option value="gov">American Government</option>
+            <option value="econ">Economics</option>
+            <option value="apgov">AP Government(1st sem; Econ 2nd sem)</option>
+            <option value="apecon">AP Economics(1st sem; Gov 2nd sem)</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="peducation"><b>Physical Education/Sports: </label><br />
+          <select name="peducation">
+
+            <option value="none">None</opiton>
+
+            <option value="afrotc1ab">AF ROTC 1AB</option>
+            <option value="afrotc2ab">AF ROTC 2AB</option>
+            <option value="band">Band A(1st sem)</option>
+            <option value="bmodern">Beginning Modern Dance</option>
+            <option value="drill">Drill Team</option>
+            <option value="peduc">Physical Education</option>
+            <option value="peyog">PE-Yoga</option>
+            <option value="pep">Pep Squad</option>
+            <option value="interdan">Intermediate Dance</option>
+            <option value="advdance">Advance Dance</option>
+            <option value="base">Baseball</option>
+            <option value="basket">Basketball</option>
+            <option value="footb">Football</option>
+            <option value="gol">Golf</option>
+            <option value="lac">Lacrosse</option>
+            <option value="mountbik">Mountain Biking</option>
+            <option value="soc">Soccer</option>
+            <option value="swim">Swimming</option>
+            <option value="ten">Tennis</option>
+            <option value="trac">Track</option>
+            <option value="volley">Volleyball</option>
+            <option value="water">Waterpolo</option>
+            <option value="afrotc1ab">AF ROTC 1AB</option>
+            <option value="xcountry">Cross Country</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="elective"><b> Elective: </label><br />
+          <select name="elective">
+            <option value="none">None</opiton>
+
+            <option value="rm12th">Precalculus</option>
+            <option value="km11th">AP Calculus AB</option>  
+            <option value="calcbc">AP Calculus BC</option>
+            <option value="linear">Linear Algebra Honors</option>
+            <option value="rstat">Statistics</option>
+            <option value="data">Introduction to Data Science</option>
+
+            <option value="art">Art 1-2</option>
+
+            <option value="dp1">Draw/Paint 1-2</option>
+            <option value="dp3">Draw/Paint 3-4</option>
+            <option value="dp5">Draw/Paint 5-6</option>
+
+            <option value="cer">Ceramics 1-2</option>
+            <option value="cer3">Ceramics 3-4</option>
+            <option value="cer5">Ceramics 5-6</option>
+            <option value="cer7">Ceramics 7-8</option>
+
+            <option value="ph">Photography 1-2(Digital)</option>
+            <option value="ph3">Photography 3-4(Digital)</option>
+            <option value="ph5">Photography 5-6(Digital)</option>
+
+            <option value="stuart">AP Studio Art(2D,3D,Drawing)</option>
+
+            <option value="ah">AP Art History</option>
+
+            <option value="dr">Drama 1-2</option>
+            <option value="dr3">Drama 3-4(Audition)</option>
+            <option value="dr5">Drama 5-6(Audition)</option>
+            <option value="dr7">Drama 7-8(Audition)</option>
+
+            <option value="dp">Drama Production (Audition) (Digital)</option>
+
+            <option value="gl">Glee (Women's Choir)</option>
+            <option value="mx">Mixed Chorus (Men's Choir)</option>
+            <option value="ac">Acapella Choir (Audiiton)</option>
+            <option value="cc">Chamber Choir (Charismatics Audition) (Digital)</option>
+            <option value="bb">Band B (Concert Band 2nd sem)</option>
+            <option value="we">Wind Ensemble</option>
+            <option value="orc">Orchestra</option>
+            <option value="soc">Symphony Orchestra</option>
+            <option value="jb">Jazz Band(Audition)</option>
+
+            <option value="cin">Cinematography 1-2</option>
+            <option value="cin3">Cinematography 3-4</option>
+            <option value="cin5">Cinematography 5-6 Honors</option>
+            <option value="cin7">Arts, Media, Entertainment Intern(Cinema 7-8)</option>
+
+            <option value="et">Entertainment Tech & Live Prodution 1-2</option>
+            <option value="et3">Entertainment Tech & Live Prodution 3-4 Honors</option>
+            <option value="et5">Entertainment Tech & Live Prodution 5-6 Honors</option>
+
+            <option value="gc">Graphic Communications 1-2</option>
+            <option value="gc3">Graphic Communications 3-4</option>
+            <option value="gc5">Graphic Communications 5-6</option>
+            <option value="gc7">Mfg & Product Dev Intern(Graphic 7-8)</option>
+
+            <option value="at">Applied Technology 1-2</option>
+            <option value="at">Applied Technology 3-4(Application)</option>
+
+            <option value="bc">Business Computer Applications</option>
+            <option value="comapp">Computer Applications</option>
+            <option value="envirocar">Environemntal Carerres 1-2(Gardening)</option>
+            <option value="teachin">Intro to Teaching(Application)</option>
+
+            <option value="jour">Journalism 1-2</option>
+            <option value="jour3">Journalism 3-4</option>
+            <option value="jour5">Journalism 5-6</option>
+
+            <option value="spee">Speech/Debate</option>
+            <option value="sgov">Student Government(By Election)</option>
+            <option value="year">Yearbook 1-6(Application))</option>
+        
+            <option value="biot">Biotechnology(7th Per)</option>
+            <option value="gcc">GCC Dual Enrollment Courses</option>
+            <option value="sres">Science Research</option>
+
+            <option value="smed">Sports Medicine</option>
+            <option value="asmed">Advanced Sports Medicine Honors</option>
+            <option value="health">Healthcare Internship Honors</option>
+
+            <option value="acomp">Applied Computer Programming</option>
+            <option value="apcomp">AP Computer Science</option>
+            <option value="honorscomp">Honors Software Development Internship</option>
+
+            <option value="spee">Speech/Debate</option>
+
+            <option value="afro">AF ROTC 1</option>
+            <option value="afro2">AF ROTC 2</option>
+            <option value="afro3">AF ROTC 3</option>
+            <option value="afro4">AF ROTC 4AB</option>
+            <option value="afrohon">Aviation Ground School Honors</option>
+
+            <option value="fren">French 1-2</option>
+            <option value="fren3">French 3-4</option>
+            <option value="germ">German 1-2</option>
+            <option value="germ3">German 3-4</option>
+            <option value="germ5">German 5-6 Honors</option>
+            <option value="kore">Korean 1-2</option>
+            <option value="kore3">Korean 3-4</option>
+            <option value="kore5">Korean 5-6</option>
+
+            <option value="kore7">Korean 7-8 Honors</option>
+            <option value="span">Spanish 1-2</option>
+            <option value="span3">Spanish 3-4</option>
+            <option value="span5">Spanish 5-6</option>
+            <option value="span7">AP Spanish Lanugage(7-8)</option>
+            <option value="span9">AP Spanish Lanugage(9-10)</option>
+           
+            <option value="cap">AP Capstone Seminar(10th or 11th)</option>
+            <option value="caprese">AP Capstone Research(11th or 12th)</option>
+            <option value="peer">Peer Tutor/Academic Mentor(Application)(11th/12th)</option>
+            <option value="spee">Speech/Debate</option>
+            <option value="ta">Teacher's Aide(11th/12th)</option>
+          </select>
+          
+
+          <br />
+          <br />
+
+          <label for="elective"><b> Elective: </label><br />
+          <select name="elective">
+
+            <option value="none">None</opiton>
+            
+            <option value="rm12th">Precalculus</option>
+            <option value="km11th">AP Calculus AB</option>  
+            <option value="calcbc">AP Calculus BC</option>
+            <option value="linear">Linear Algebra Honors</option>
+            <option value="rstat">Statistics</option>
+            <option value="data">Introduction to Data Science</option>
+            
+            <option value="art">Art 1-2</option>
+
+            <option value="dp1">Draw/Paint 1-2</option>
+            <option value="dp3">Draw/Paint 3-4</option>
+            <option value="dp5">Draw/Paint 5-6</option>
+
+            <option value="cer">Ceramics 1-2</option>
+            <option value="cer3">Ceramics 3-4</option>
+            <option value="cer5">Ceramics 5-6</option>
+            <option value="cer7">Ceramics 7-8</option>
+
+            <option value="ph">Photography 1-2(Digital)</option>
+            <option value="ph3">Photography 3-4(Digital)</option>
+            <option value="ph5">Photography 5-6(Digital)</option>
+
+            <option value="stuart">AP Studio Art(2D,3D,Drawing)</option>
+
+            <option value="ah">AP Art History</option>
+
+            <option value="dr">Drama 1-2</option>
+            <option value="dr3">Drama 3-4(Audition)</option>
+            <option value="dr5">Drama 5-6(Audition)</option>
+            <option value="dr7">Drama 7-8(Audition)</option>
+
+            <option value="dp">Drama Production (Audition) (Digital)</option>
+
+            <option value="gl">Glee (Women's Choir)</option>
+            <option value="mx">Mixed Chorus (Men's Choir)</option>
+            <option value="ac">Acapella Choir (Audiiton)</option>
+            <option value="cc">Chamber Choir (Charismatics Audition) (Digital)</option>
+            <option value="bb">Band B (Concert Band 2nd sem)</option>
+            <option value="we">Wind Ensemble</option>
+            <option value="orc">Orchestra</option>
+            <option value="soc">Symphony Orchestra</option>
+            <option value="jb">Jazz Band(Audition)</option>
+
+            <option value="cin">Cinematography 1-2</option>
+            <option value="cin3">Cinematography 3-4</option>
+            <option value="cin5">Cinematography 5-6 Honors</option>
+            <option value="cin7">Arts, Media, Entertainment Intern(Cinema 7-8)</option>
+
+            <option value="et">Entertainment Tech & Live Prodution 1-2</option>
+            <option value="et3">Entertainment Tech & Live Prodution 3-4 Honors</option>
+            <option value="et5">Entertainment Tech & Live Prodution 5-6 Honors</option>
+
+            <option value="gc">Graphic Communications 1-2</option>
+            <option value="gc3">Graphic Communications 3-4</option>
+            <option value="gc5">Graphic Communications 5-6</option>
+            <option value="gc7">Mfg & Product Dev Intern(Graphic 7-8)</option>
+
+            <option value="at">Applied Technology 1-2</option>
+            <option value="at">Applied Technology 3-4(Application)</option>
+
+            <option value="bc">Business Computer Applications</option>
+            <option value="comapp">Computer Applications</option>
+            <option value="envirocar">Environemntal Carerres 1-2(Gardening)</option>
+            <option value="teachin">Intro to Teaching(Application)</option>
+
+            <option value="jour">Journalism 1-2</option>
+            <option value="jour3">Journalism 3-4</option>
+            <option value="jour5">Journalism 5-6</option>
+
+            <option value="spee">Speech/Debate</option>
+            <option value="sgov">Student Government(By Election)</option>
+            <option value="year">Yearbook 1-6(Application))</option>
+        
+            <option value="biot">Biotechnology(7th Per)</option>
+            <option value="gcc">GCC Dual Enrollment Courses</option>
+            <option value="sres">Science Research</option>
+
+            <option value="smed">Sports Medicine</option>
+            <option value="asmed">Advanced Sports Medicine Honors</option>
+            <option value="health">Healthcare Internship Honors</option>
+
+            <option value="acomp">Applied Computer Programming</option>
+            <option value="apcomp">AP Computer Science</option>
+            <option value="honorscomp">Honors Software Development Internship</option>
+
+            <option value="spee">Speech/Debate</option>
+
+            <option value="afro">AF ROTC 1</option>
+            <option value="afro2">AF ROTC 2</option>
+            <option value="afro3">AF ROTC 3</option>
+            <option value="afro4">AF ROTC 4AB</option>
+            <option value="afrohon">Aviation Ground School Honors</option>
+
+            <option value="fren">French 1-2</option>
+            <option value="fren3">French 3-4</option>
+            <option value="germ">German 1-2</option>
+            <option value="germ3">German 3-4</option>
+            <option value="germ5">German 5-6 Honors</option>
+            <option value="kore">Korean 1-2</option>
+            <option value="kore3">Korean 3-4</option>
+            <option value="kore5">Korean 5-6</option>
+
+            <option value="kore7">Korean 7-8 Honors</option>
+            <option value="span">Spanish 1-2</option>
+            <option value="span3">Spanish 3-4</option>
+            <option value="span5">Spanish 5-6</option>
+            <option value="span7">AP Spanish Lanugage(7-8)</option>
+            <option value="span9">AP Spanish Lanugage(9-10)</option>
+           
+            <option value="cap">AP Capstone Seminar(10th or 11th)</option>
+            <option value="caprese">AP Capstone Research(11th or 12th)</option>
+            <option value="peer">Peer Tutor/Academic Mentor(Application)(11th/12th)</option>
+            <option value="spee">Speech/Debate</option>
+            <option value="ta">Teacher's Aide(11th/12th)</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="elective"><b> Elective(2nd Choice): </label><br />
+          <select name="elective">
+
+            <option value="none">None</opiton>
+              
+            <option value="rm12th">Precalculus</option>
+            <option value="km11th">AP Calculus AB</option>  
+            <option value="calcbc">AP Calculus BC</option>
+            <option value="linear">Linear Algebra Honors</option>
+            <option value="rstat">Statistics</option>
+            <option value="data">Introduction to Data Science</option>
+
+            <option value="art">Art 1-2</option>
+
+            <option value="dp1">Draw/Paint 1-2</option>
+            <option value="dp3">Draw/Paint 3-4</option>
+            <option value="dp5">Draw/Paint 5-6</option>
+
+            <option value="cer">Ceramics 1-2</option>
+            <option value="cer3">Ceramics 3-4</option>
+            <option value="cer5">Ceramics 5-6</option>
+            <option value="cer7">Ceramics 7-8</option>
+
+            <option value="ph">Photography 1-2(Digital)</option>
+            <option value="ph3">Photography 3-4(Digital)</option>
+            <option value="ph5">Photography 5-6(Digital)</option>
+
+            <option value="stuart">AP Studio Art(2D,3D,Drawing)</option>
+
+            <option value="ah">AP Art History</option>
+
+            <option value="dr">Drama 1-2</option>
+            <option value="dr3">Drama 3-4(Audition)</option>
+            <option value="dr5">Drama 5-6(Audition)</option>
+            <option value="dr7">Drama 7-8(Audition)</option>
+
+            <option value="dp">Drama Production (Audition) (Digital)</option>
+
+            <option value="gl">Glee (Women's Choir)</option>
+            <option value="mx">Mixed Chorus (Men's Choir)</option>
+            <option value="ac">Acapella Choir (Audiiton)</option>
+            <option value="cc">Chamber Choir (Charismatics Audition) (Digital)</option>
+            <option value="bb">Band B (Concert Band 2nd sem)</option>
+            <option value="we">Wind Ensemble</option>
+            <option value="orc">Orchestra</option>
+            <option value="soc">Symphony Orchestra</option>
+            <option value="jb">Jazz Band(Audition)</option>
+
+            <option value="cin">Cinematography 1-2</option>
+            <option value="cin3">Cinematography 3-4</option>
+            <option value="cin5">Cinematography 5-6 Honors</option>
+            <option value="cin7">Arts, Media, Entertainment Intern(Cinema 7-8)</option>
+
+            <option value="et">Entertainment Tech & Live Prodution 1-2</option>
+            <option value="et3">Entertainment Tech & Live Prodution 3-4 Honors</option>
+            <option value="et5">Entertainment Tech & Live Prodution 5-6 Honors</option>
+
+            <option value="gc">Graphic Communications 1-2</option>
+            <option value="gc3">Graphic Communications 3-4</option>
+            <option value="gc5">Graphic Communications 5-6</option>
+            <option value="gc7">Mfg & Product Dev Intern(Graphic 7-8)</option>
+
+            <option value="at">Applied Technology 1-2</option>
+            <option value="at">Applied Technology 3-4(Application)</option>
+
+            <option value="bc">Business Computer Applications</option>
+            <option value="comapp">Computer Applications</option>
+            <option value="envirocar">Environemntal Carerres 1-2(Gardening)</option>
+            <option value="teachin">Intro to Teaching(Application)</option>
+
+            <option value="jour">Journalism 1-2</option>
+            <option value="jour3">Journalism 3-4</option>
+            <option value="jour5">Journalism 5-6</option>
+
+            <option value="spee">Speech/Debate</option>
+            <option value="sgov">Student Government(By Election)</option>
+            <option value="year">Yearbook 1-6(Application))</option>
+        
+            <option value="biot">Biotechnology(7th Per)</option>
+            <option value="gcc">GCC Dual Enrollment Courses</option>
+            <option value="sres">Science Research</option>
+
+            <option value="smed">Sports Medicine</option>
+            <option value="asmed">Advanced Sports Medicine Honors</option>
+            <option value="health">Healthcare Internship Honors</option>
+
+            <option value="acomp">Applied Computer Programming</option>
+            <option value="apcomp">AP Computer Science</option>
+            <option value="honorscomp">Honors Software Development Internship</option>
+
+            <option value="spee">Speech/Debate</option>
+
+            <option value="afro">AF ROTC 1</option>
+            <option value="afro2">AF ROTC 2</option>
+            <option value="afro3">AF ROTC 3</option>
+            <option value="afro4">AF ROTC 4AB</option>
+            <option value="afrohon">Aviation Ground School Honors</option>
+
+            <option value="fren">French 1-2</option>
+            <option value="fren3">French 3-4</option>
+            <option value="germ">German 1-2</option>
+            <option value="germ3">German 3-4</option>
+            <option value="germ5">German 5-6 Honors</option>
+            <option value="kore">Korean 1-2</option>
+            <option value="kore3">Korean 3-4</option>
+            <option value="kore5">Korean 5-6</option>
+
+            <option value="kore7">Korean 7-8 Honors</option>
+            <option value="span">Spanish 1-2</option>
+            <option value="span3">Spanish 3-4</option>
+            <option value="span5">Spanish 5-6</option>
+            <option value="span7">AP Spanish Lanugage(7-8)</option>
+            <option value="span9">AP Spanish Lanugage(9-10)</option>
+           
+            <option value="cap">AP Capstone Seminar(10th or 11th)</option>
+            <option value="caprese">AP Capstone Research(11th or 12th)</option>
+            <option value="peer">Peer Tutor/Academic Mentor(Application)(11th/12th)</option>
+            <option value="spee">Speech/Debate</option>
+            <option value="ta">Teacher's Aide(11th/12th)</option>
+          </select>
+        `;
+      } else {
+        englishForm.innerHTML = "";
+      }
+    }
+
+    showHideEnglishForm();
+
+  </script>
+  
+  <br />
+  <br />
+
+  <input type="submit" value="Next Page" />
+  </form>
+  </div>
+
+
+  <br />
+
+  <form id="english-form"></form>
+
+  <style>
+    .studentinfo{
+      float: left;
+      padding: 11px;
+      text-align: left;
+      background-color: rgb(251, 251, 251);
+      color: black;
+      font-size: 20px;
+      transform: translate(80%, 10%);
+      width: 20%;
+    }
+    .courseslists{
+      float: left;
+      padding: 11px;
+      text-align: left;
+      background-color: rgb(251, 251, 251);
+      color: rgb(114, 54, 54);
+      font-size: 15px;
+      transform: translate(45%, 3.5%);
+      width: 40%;
+    }
+    .body {
+      background-image: url("regist.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    .stitle {
+      text-align: center;
+      font-size: 20px;
+    }
+    .sheader {
+      padding: 11px;
+      text-align: center;
+      background-color: rgb(155, 172, 172);
+      color: white;
+      font-size: 10px;
+    }
+   
+  </style>
+</body>
+</html>

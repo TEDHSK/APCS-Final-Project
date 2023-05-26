@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My first webpage</title>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>Crescenta Valley High School Course Registration</h1>
+    </div>
+
+    <div class="table">
+      <p class="rtitle">
+        <b>Register for Classes</b>
+      </p>
+      <form action="registration.html" method="get">
+        
+        <label for="name"> Student Name:</label><br />
+        <input
+          type="text"
+          id="sname"
+          name="sname"
+        /><br />
+
+        <br />
+
+        <label for="studentid"> Student ID:</label><br />
+        <input
+          type="text"
+          id="sid"
+          name="sid"
+          minlength="6"
+          maxlength="6"
+        /><br />
+
+        <br />
+
+        <label for="grade">Student Grade (Coming Year):</label><br />
+
+        <select name="grade" id="grade">
+          <option value="9th">9th</option>
+          <option value="10th">10th</option>
+          <option value="11th">11th</option>
+          <option value="12th">12th</option>
+        </select>
+
+        <br />
+        <br />
+
+        <input type="submit" value="Start Registration" />
+      </form>
+    </div>
+
+    <style>
+      body {
+        background-image: url("website.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+      }
+      .header {
+        padding: 11px;
+        text-align: center;
+        background-color: rgb(155, 172, 172);
+        color: white;
+        font-size: 10px;
+      }
+      .table {
+        background-color: rgb(240, 232, 222);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        padding: 110px;
+        box-sizing: border-box;
+      }
+      .rtitle {
+        font-size: 20px;
+        color: rgb(76, 85, 85);
+      }
+    </style>
+  </body>
+</html>
