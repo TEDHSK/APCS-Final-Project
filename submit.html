@@ -1,25 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
   <title>Submission</title>
-    </head>
-    <body>
-      <div class="title">Your Scehdule</div>
+</head>
+<body>
+  <body onload="showalert()">
+  <div class="title">Your Schedule</div>
 
-      <script>
-        const params = new URLSearchParams(window.location.search);
+  <div class="studentinfo" id="registration-data"></div>
 
-      </script>
+  <div class="selected-courses" id="course-data"></div>
+
+  <a href="https://q.gusd.net/production/studentportal" class="submit" target="_blank">Submit</a>
+  <a href="https://www.gusd.net/domain/1304" class="counselor" target="_blank">Counseling</a>
+  
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    
+    const studentName = localStorage.getItem("studentName");
+    const studentID = localStorage.getItem("studentID");
+    const grade = localStorage.getItem("grade");
+    
+    const registrationDataDiv = document.getElementById("registration-data");
+    registrationDataDiv.innerHTML = `
+      <p>Student Name: ${studentName}</p>
+      <p>Student ID: ${studentID}</p>
+      <p>Grade (Coming Year): ${grade}</p>
+    `;
+
+    const english = params.get("english");
+    const math = params.get("math");
+    const science = params.get("science");
+    const socialscience = params.get("socialscience");
+    const peducation = params.get("peducation");
+    const elective = params.get("elective");
+    const ted = params.get("ted");
+    const kang = params.get("kang");
+    const teddi = params.get("teddi")
+
+    localStorage.setItem("english", english);
+    localStorage.setItem("math", math);
+    localStorage.setItem("science", science);
+    localStorage.setItem("socialscience", socialscience);
+    localStorage.setItem("peducation", peducation);
+    localStorage.setItem("elective", elective);
+    localStorage.setItem("ted", ted);
+    localStorage.setItem("kang", kang);
+
+    const courseDataDiv = document.getElementById("course-data");
+    courseDataDiv.innerHTML = `
+      <p>English: ${english}</p>
+      <p>Math: ${math}</p>
+      <p>Science: ${science}</p>
+      <p>Social Science: ${socialscience}</p>
+      <p>Physical Education/Sports: ${peducation}</p>
+      <p>Elective: ${elective}</p>
+      <p>Elective: ${ted}</p>
+      <p>Elective(Alternate): ${kang}</p>
+    `;
+
+     function showalert(){
+      alert("Please check if your schedule matches the courses you inputed. Click the Submit button to proceed adding to your student portal.")
+     }
+  </script>
 
       <style>
+      body{
+        background-image: url("librarys.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+      }
       .title {
-        padding: 11px;
+        padding: 30px;
         text-align: center;
         background-color: rgb(155, 172, 172);
         color: white;
-        font-size: 10px;
+        font-size: 25px;
+      }
+      .studentinfo{
+        padding: 80px;
+        text-align: left;
+        transform: translate(40%,20%);
+        background-color: rgb(252, 252, 252);
+        width: 20%;
+      }
+      .selected-courses{
+        padding: 40px;
+        text-align: left;
+        font-size: 15px;
+        transform: translate(100%, -62.9%);
+        width: 40%;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+      }
+      .counselor{
+        display: inline-block;
+        background-color: #eeb4b4;
+        color: #000000;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 20px 80px;
+        border: black;
+        border-radius: 10px;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;  
+        transform: translate(75%,-500%);
+      }
+      .submit{
+        display: inline-block;
+        background-color: #d8d8ef;
+        color: #141313;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 20px 80px;
+        border: black;
+        border-radius: 10px;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;  
+        transform: translate(85%,-500%);
       }
       </style>
   </body>
 </html>
+
     
